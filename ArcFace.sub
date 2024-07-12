@@ -1,0 +1,28 @@
+Universe                = vanilla
+Executable 		= /bin/bash
+Arguments 		= run_arcface.sh
+Environment             = "PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True"
+get_env 		= true
+
+#Requirements 		= Nandor
+Requirements		= (Target.GPUSlot)
+Request_GPUs            = 1
+Initialdir              = /scratch/cluster/dylantw
+Output                  = ArcFace_s5000m100wd0005vis.out
+Error                   = ArcFace_s5000m100wd0005vis.err
+Log                     = ArcFace_s5000m100wd0005vis.log
+
+should_transfer_files   = YES
+when_to_transfer_output = ON_EXIT
+transfer_input_files    = ArcFace.py,train_set.tar, iresnet100.py, arcfacebackbone.pth, run_arcface.sh
+transfer_output_files   = plots.tar.gz
+
+# UTCS-specific attributes
++Group                  = "UNDER"
++Project                = "AI_ROBOTICS"
++ProjectDescription     = "Deep learning model training for image classification in Transfer Learning with AffectNet dataset"
++GPUJob = true
+
+request_memory = 15000  
+
+Queue
