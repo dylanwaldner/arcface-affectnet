@@ -14,7 +14,7 @@ import torch.optim as optim
 import torch.nn.functional as F
 from torch import linalg
 
-import umap
+
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
